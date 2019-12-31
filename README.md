@@ -10,11 +10,11 @@ As of 30 December 2019, the standards as scraped may be viewed [here](https://ww
 
 Mathematical practices are enumerated below for reference and appear across all standards:
 
-    + Make sense of problems and persevere in solving them.
-    + Reason abstractly and quantitatively.
-    + Construct viable arguments and critique the reasoning of others.
-    + Model with mathematics.
-    + Use appropriate tools strategically.
-    + Attend to precision.
-    + Look for and make use of structure.
-    + Look for and express regularity in repeated reasoning.
++ Make sense of problems and persevere in solving them.
++ Reason abstractly and quantitatively.
++ Construct viable arguments and critique the reasoning of others.
++ Model with mathematics.
++ Use appropriate tools strategically.
++ Attend to precision.
++ Look for and make use of structure.
++ Look for and express regularity in repeated reasoning.
