@@ -1,19 +1,14 @@
 #!/usr/bin/env node
 
-// For running CLI functions
-const { exec } = require('child_process');
-let execute = function(command, callback) {
-    exec(command, function(error, stdout, stderr) { callback(stdout); });
-}
+// Note that this presumes you run ./scrape.sh first
 
 // For parsing and writing JSON from the command line
 const fs = require('fs');
 const he = require('he');
 const { parse } = require('json2csv');
 
-
 // Mappings between acronyms and topics/domains
-topic_lookup = {
+let topic_lookup = {
     "HSN": "Number & Quantity",
     "HSA": "Algebra",
     "HSF": "Functions",
@@ -23,7 +18,7 @@ topic_lookup = {
     "MP": "Mathematical Practices"
 };
 
-domain_lookup = {
+let domain_lookup = {
     "Number & Quantity": {
         "RN": "The Real Number System",
         "Q": "Quantities",
@@ -76,21 +71,20 @@ domain_lookup = {
     }
 };
 
-// Scrape the HTML and then…
-
 // Read and parse the substandards from the JSON
 let substandards_raw = fs.readFileSync('./pruned_standards.json', 'utf8');
 let substandards = JSON.parse(substandards_raw);
 
 // For each substandard
 substandards.forEach(function(standard) {
-    console.log("Looking at", standard);
     let topic_acronym = standard.ID.split('.')[3];
     let domain_acronym = standard.ID.split('.')[4];
     standard.Topic = topic_lookup[topic_acronym]; // Pull out its topic
     standard.Domain = domain_lookup[standard.Topic][domain_acronym]; // and domain
+
     standard.ID = standard.ID.replace("CCSS.Math.Content.", ""); // Clean up a shorter ID
     standard["Long ID"] = standard.ID.replace(/^/, "CCSS.Math.Content."); // kludge to get Notion to render the short ID as the DB ID
+    
     // Check if it's a "transition" course: http://www.corestandards.org/Math/Content/note-on-courses-transitions/courses-transitions/
     if (standard.Description.match(/^\(\+\) /)) {
         standard.Transition = true;
@@ -99,7 +93,7 @@ substandards.forEach(function(standard) {
         standard.Transition = false;
     }
 
-    // Clean up HTML encoded entities
+    // Clean up HTML encoded entities in the description
     standard.Description = he.decode(standard.Description)
 
     // Check if it is a Modeling standard
