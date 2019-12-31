@@ -1,0 +1,23 @@
+{
+  "name": "cccs-hs-mathematics",
+  "version": "0.0.1",
+  "description": "Common Core High School Mathematics Standards",
+  "main": "generate-standards-csv.js",
+  "dependencies": {
+    "json2csv": "^4.5.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aresnick/CCCS-HS-Mathematics.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aresnick/CCCS-HS-Mathematics/issues"
+  },
+  "homepage": "https://github.com/aresnick/CCCS-HS-Mathematics#readme"
+}
