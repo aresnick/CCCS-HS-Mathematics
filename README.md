@@ -1,6 +1,6 @@
 # README
 
-**As of 30 December 2019, the standards as scraped may be viewed [here](https://www.notion.so/powderhousepbll/446fa0839c05410fa2b9ccdb0223e644?v=d54ef6bc7cbe40458385c2fb271ab993).**
+**As of 5 February 2020, the standards as scraped may be viewed [here](https://www.notion.so/powderhousepbll/446fa0839c05410fa2b9ccdb0223e644?v=d54ef6bc7cbe40458385c2fb271ab993).**
 
 Note that two areas of the CCCS standards do not appear here because they appear across all of the standards: [Mathematical Practices](http://www.corestandards.org/Math/Practice/) and [Modeling](http://www.corestandards.org/Math/Content/HSM/).  Modeling standards are indicated by a boolean.  Mathematical practices are enumerated below for reference and appear across all standards:
 
