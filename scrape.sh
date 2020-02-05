@@ -19,7 +19,11 @@ done
 
 echo "Done downloading raw HTML of standards…"
 
-cat raw_standards.html | pup '.content .substandard json{}' > json_standards.json # Extract substandards as JSON
+# Replace formatting tags to make grabbing substandards with pup simpler
+cat raw_standards.html | perl -pe 's/\n//g;' | perl -pe 's/<b>(.+?)<\/b>/$1/g;' | perl -pe 's/<br>//g;' | perl -pe 's/<i>(.+?)<\/i>/$1/g;' | perl -pe 's/<sub>(.+?)<\/sub>/$1/g;' | perl -pe 's/<sup>(.+?)<\/sup>/$1/g;' | perl -pe 's/ +/ /g;' | perl -pe 's/\( +/\(/g;' | perl -pe 's/ +\)+/\)/g;' > raw_deformatted_standards.html
+cat raw_deformatted_standards.html | pup '.content .substandard' > raw_substandards.html
+
+cat raw_substandards.html | pup '.substandard json{}' > json_standards.json # Extract substandards as JSON
 
 cat raw_standards.html | pup '.substandard a attr{href}' | grep -Eo "http://www.corestandards.org/Math/Content/HS.+" | grep -v "introduction" |  sort -n | uniq > expected_links.txt
 
